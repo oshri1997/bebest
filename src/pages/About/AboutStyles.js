@@ -1,27 +1,16 @@
-import React from "react";
 import styled from "styled-components";
-import Card from "../components/Card";
 
-const Main = () => {
-  return (
-    <Container>
-      <Card headerTitle="Personal Training" />
-      <Card headerTitle="Training Camps" />
-      <Card headerTitle="Adapted Nutrition Menu" />
-    </Container>
-  );
-};
-
-const Container = styled.div`
-  border-top: 2px solid #9e1109;
-  border-bottom: 2px solid #9e1109;
-  background-color: #9eaffa;
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #00587a;
   padding: 10px 0 5px;
 
   @media screen and (min-width: 960px) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 10px;
+    margin-top: 4rem;
   }
   & > :nth-child(1) {
     grid-column: 2/7;
@@ -69,5 +58,24 @@ const Container = styled.div`
     }
   }
 `;
+export const TitleContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+export const Title = styled.h2`
+  font-size: 4.2rem;
+  color: #e7e7de;
+  padding: 2rem 0;
+  margin-top: 2.5rem;
 
-export default Main;
+  @media screen and (min-width: 620px) {
+    font-size: 5.4rem;
+  }
+  @media screen and (min-width: 960px) {
+    font-size: 5.8rem;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 6.8rem;
+    margin-top: 10rem;
+  }
+`;
