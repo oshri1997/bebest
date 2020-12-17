@@ -4,12 +4,12 @@ import { TitleContainer, Title } from "./ContactStyles";
 
 const Contact = () => {
   return (
-    <div>
+    <>
       <TitleContainer>
         <Title>Contact Us</Title>
       </TitleContainer>
       <ContactForm />
-    </div>
+    </>
   );
 };
 

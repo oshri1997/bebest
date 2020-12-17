@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+
 export const NavContainer = styled.nav`
   height: 80px;
   background: #00587a;
@@ -40,7 +42,12 @@ export const HeroContainer = styled.div`
   background: #00587a;
   display: grid;
   grid-template-columns: 1fr;
+  height: calc(80vh - 80px);
   padding: 3rem calc((100vw - 1300px) / 2);
+  overflow: hidden;
+  @media screen and (min-width: 620px) {
+    height: calc(95vh - 80px);
+  }
   @media screen and (min-width: 960px) {
     grid-template-columns: repeat(2, 1fr);
     width: 95%;
@@ -50,8 +57,10 @@ export const HeroContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
     width: 95%;
     margin: 0 auto;
+    height: calc(80vh - 80px);
   }
   @media screen and (min-width: 1600px) {
+    height: calc(95vh - 80px);
     width: 100%;
     padding: 3rem calc((100vw - 1600px) / 2);
   }
@@ -61,7 +70,7 @@ export const ColumnLeft = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const HeroImage = styled.img`
+export const HeroImage = styled(motion.img)`
   width: 90%;
   height: 90%;
 `;
@@ -79,7 +88,7 @@ export const ColumnRight = styled.div`
     width: 100%;
   }
 `;
-export const HeroHeader = styled.h2`
+export const HeroHeader = styled(motion.h2)`
   color: #e7e7de;
   text-align: center;
   font-size: 4rem;

@@ -1,19 +1,30 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+export const SectionAbout = styled.section`
+  height: 100vh;
+  padding: 2rem 1rem;
+`;
 
-export const CardsContainer = styled.div`
+export const CardsContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   background-color: #00587a;
   padding: 10px 0 5px;
-
+  overflow: hidden;
   @media screen and (min-width: 960px) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 10px;
     margin-top: 4rem;
+    .personal {
+      grid-column: 7/12;
+      width: 100%;
+      height: 100%;
+      align-self: center;
+    }
   }
   & > :nth-child(1) {
-    grid-column: 2/7;
+    grid-column: 1/7;
     grid-row: 1;
     justify-self: center;
   }
@@ -61,12 +72,14 @@ export const CardsContainer = styled.div`
 export const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
+  overflow: hidden;
 `;
-export const Title = styled.h2`
+export const Title = styled(motion.h2)`
   font-size: 4.2rem;
   color: #e7e7de;
   padding: 2rem 0;
   margin-top: 2.5rem;
+  overflow: hidden;
 
   @media screen and (min-width: 620px) {
     font-size: 5.4rem;
@@ -76,6 +89,5 @@ export const Title = styled.h2`
   }
   @media screen and (min-width: 1200px) {
     font-size: 6.8rem;
-    margin-top: 10rem;
   }
 `;

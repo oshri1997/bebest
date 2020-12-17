@@ -5,10 +5,6 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  /* height: 60px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center; */
 `;
 export const CopyRight = styled.p`
   grid-column: 1/2;

@@ -30,13 +30,14 @@ const ContactForm = () => {
         onSubmit={onSubmit}
       >
         {(formik) => {
-          {
+          /* {
             {
               {
-                /* console.log(formik); */
+                 console.log(formik); 
               }
             }
-          }
+          } */
+
           return (
             <Form>
               <Box
