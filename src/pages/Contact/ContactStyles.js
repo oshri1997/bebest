@@ -21,3 +21,25 @@ export const Title = styled.h2`
     margin-top: 10rem;
   }
 `;
+
+export const Container = styled.div`
+  background-color: transparent;
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    justify-content: center;
+    width: min(90%, 120rem);
+    gap: 30px;
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 2rem;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    margin-inline: auto;
+  }
+
+  img {
+    display: none;
+    @media screen and (min-width: 1200px) {
+      display: block;
+      width: min(80%, 50rem);
+    }
+  }
+`;

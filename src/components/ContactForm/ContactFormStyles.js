@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
     },
     "& .MuiFormHelperText-root": {
       fontSize: "1.1rem",
+      color: "#fff",
     },
     "& .MuiFilledInput-underline:before": {
       borderBottom: " 2px solid rgba(231,231,222,0.6)",
@@ -35,6 +36,9 @@ const useStyles = makeStyles(() => ({
     },
     "& .MuiTypography-root": {
       fontSize: "14px",
+      "@media screen and (min-width:1600px)": {
+        fontSize: "2rem",
+      },
     },
   },
   boxFormContainer: {

@@ -4,17 +4,19 @@ import { motion } from "framer-motion";
 export const CardContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
   margin: 10px auto;
-  background-color: #0f3057;
+  background-color: rgba(0, 0, 0, 0.45);
   padding: 2rem 1rem;
   border-radius: 20px;
+  z-index: 1;
 
   @media screen and (min-width: 620px) {
     width: 65%;
   }
   @media screen and (min-width: 960px) {
-    width: 75%;
+    max-width: 400px;
+    margin: 0;
   }
   @media screen and (min-width: 1200px) {
     width: 90%;
@@ -32,6 +34,9 @@ export const Header = styled.h3`
   @media screen and (min-width: 960px) {
     font-size: 2.2rem;
   }
+  @media screen and (min-width: 1600px) {
+    font-size: 2.8rem;
+  }
 `;
 
 export const Content = styled.div`
@@ -40,13 +45,11 @@ export const Content = styled.div`
     padding: 0 2rem;
   }
   @media screen and (min-width: 1600px) {
-    padding: 0 6rem;
+    padding: 0 2rem;
   }
 `;
 
 export const Description = styled.p`
-  padding: 0 15px;
-
   font-size: 1.2rem;
   letter-spacing: 0.8px;
   color: #e7e7de;
@@ -56,6 +59,9 @@ export const Description = styled.p`
   }
   @media screen and (min-width: 960px) {
     font-size: 1.6rem;
+  }
+  @media screen and (min-width: 1600px) {
+    font-size: 2rem;
   }
 `;
 export const BallImg = styled.img`

@@ -1,14 +1,23 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
 export const NavContainer = styled.nav`
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 0;
   height: 80px;
-  background: #00587a;
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0rem calc((100vw - 1300px) / 2);
+  margin-bottom: 2rem;
+
+  &.active {
+    background: #3b558c;
+  }
 
   @media screen and (min-width: 1600px) {
     padding: 3rem calc((100vw - 1600px) / 2);
@@ -22,29 +31,38 @@ export const LogoLink = styled(Link)`
   cursor: pointer;
 `;
 export const NavItems = styled.div`
-  display: none;
-  @media screen and (min-width: 960px) {
-    display: block;
-  }
+  display: block;
 `;
 export const NavLink = styled(Link)`
-  padding: 0 1.5rem;
-  font-size: 1.7rem;
+  padding: 0 1rem;
+  font-size: 1.2rem;
   color: #e7e7de;
+
   cursor: pointer;
 
   &:hover {
-    color: #000;
+    color: #0f3057;
+  }
+  &:link,
+  &:visited,
+  &:active {
+    color: #e7e7de;
+  }
+  @media screen and (min-width: 960px) {
+    padding: 0 1.5rem;
+    font-size: 1.7rem;
   }
 `;
 
 export const HeroContainer = styled.div`
-  background: #00587a;
+  background: #6b9aff;
   display: grid;
   grid-template-columns: 1fr;
   height: calc(80vh - 80px);
-  padding: 3rem calc((100vw - 1300px) / 2);
+  margin-top: 6rem;
+  padding: 3rem calc((100vw - 1300px) / 2) 0;
   overflow: hidden;
+
   @media screen and (min-width: 620px) {
     height: calc(95vh - 80px);
   }
@@ -60,7 +78,7 @@ export const HeroContainer = styled.div`
     height: calc(80vh - 80px);
   }
   @media screen and (min-width: 1600px) {
-    height: calc(95vh - 80px);
+    height: calc(100vh - 80px);
     width: 100%;
     padding: 3rem calc((100vw - 1600px) / 2);
   }
@@ -69,10 +87,17 @@ export const ColumnLeft = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 `;
 export const HeroImage = styled(motion.img)`
   width: 90%;
-  height: 90%;
+  height: auto;
+  @media screen and (min-width: 620px) {
+    width: 70%;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 90%;
+  }
 `;
 
 export const ColumnRight = styled.div`
@@ -86,6 +111,7 @@ export const ColumnRight = styled.div`
     justify-self: start;
     grid-column: 2;
     width: 100%;
+    flex-direction: column;
   }
 `;
 export const HeroHeader = styled(motion.h2)`
@@ -108,3 +134,41 @@ export const HeroHeader = styled(motion.h2)`
     font-size: 8.2rem;
   }
 `;
+
+const mouse = keyframes`
+  from{
+    opacity:1;
+    top:8px;
+  }
+
+  to{
+    opacity:0;
+    top:8rem;
+  }
+`;
+
+export const MouseWheelContainer = styled.div`
+  display: none;
+  @media screen and (min-width: 1200px) {
+    display: block;
+    border: 1px solid #000;
+    width: 5.5rem;
+    height: 10rem;
+    border-radius: 60px;
+    position: relative;
+
+    & ::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      border-radius: 50%;
+      animation: ${mouse} 2s infinite;
+    }
+  }
+`;
+export const Mouse = styled.div``;

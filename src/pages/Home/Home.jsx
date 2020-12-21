@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import bgHero from "../../images/UnDraw.svg";
 import { useInView } from "react-intersection-observer";
+import { animateScroll as scroll } from "react-scroll";
 
 import {
   HeroContainer,
@@ -12,6 +13,8 @@ import {
   HeroImage,
   ColumnRight,
   HeroHeader,
+  MouseWheelContainer,
+  Mouse,
 } from "./HomeStyles";
 
 // const homeVariants = {
@@ -48,18 +51,35 @@ const imgVariants = {
 };
 
 const Home = () => {
+  const [navbar, setNavbar] = useState(false);
+
+  const changeBgOnScorll = () => {
+    if (window.scrollY >= 60) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBgOnScorll);
   return (
     <>
-      <NavContainer>
-        <LogoLink to="/">The Best</LogoLink>
+      <NavContainer className={navbar ? "active" : ""} id="in">
+        <LogoLink onClick={() => scroll.scrollToTop()} to="in">
+          The Best
+        </LogoLink>
         <NavItems>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/">About</NavLink>
-          <NavLink to="/">Contact</NavLink>
+          <NavLink onClick={() => scroll.scrollToTop()}>Home</NavLink>
+          <NavLink offset={-35} duration={1000} smooth={true} to="about">
+            About
+          </NavLink>
+          <NavLink duration={1000} smooth={true} to="contact">
+            Contact
+          </NavLink>
         </NavItems>
       </NavContainer>
 
-      <HeroContainer>
+      <HeroContainer id="home">
         <ColumnLeft>
           <HeroImage
             variants={imgVariants}
@@ -73,6 +93,9 @@ const Home = () => {
           <HeroHeader variants={headerVariants} initial="hidden" animate="show">
             Be The Best Player In The World
           </HeroHeader>
+          <MouseWheelContainer>
+            <Mouse />
+          </MouseWheelContainer>
         </ColumnRight>
       </HeroContainer>
     </>
